@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/sklinder-mark.png";
+import logoAsset from "@/assets/sklinder-logo.png.asset.json";
 
 export const Route = createFileRoute("/collaborate")({
   beforeLoad: () => {
@@ -26,6 +26,7 @@ export const Route = createFileRoute("/collaborate")({
 });
 
 const whatsapp = "https://chat.whatsapp.com/HjaKxj8cAJZ41Z6cvrCq06?s=cl&p=a&mlu=0";
+const logo = logoAsset.url;
 const skillOptions = ["Design", "Development", "Marketing", "AI", "Growth", "Product", "Strategy", "Content", "Fundraising"];
 
 type RequestRow = {
@@ -101,9 +102,8 @@ function Collaborate() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10" aria-label="Collaborate navigation">
-          <Link to="/" className="flex items-center gap-2.5">
-            <img src={logo} alt="Sklinder" width={239} height={286} className="h-8 w-auto object-contain" />
-            <span className="font-display text-base font-semibold uppercase tracking-[.14em]">Sklinder</span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-12 w-auto object-contain" />
           </Link>
           <Link to="/" className="flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground">
             <ArrowLeft className="size-3.5" />Back home
