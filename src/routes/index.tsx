@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ArrowDown, ArrowRight, Check, Instagram, Linkedin, MessageCircle, Send } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, Instagram, Linkedin, MessageCircle, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -187,7 +187,8 @@ function Navbar({ scrolled, open, setOpen }: { scrolled: boolean; open: boolean;
           <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-9 w-auto object-contain sm:h-11" />
         </a>
         <a href="tel:+966511041390" aria-label="Call Sklinder" className="justify-self-end text-foreground/80 transition-colors hover:text-foreground">
-          <img src={lightningAsset.url} alt="Lightning" className="h-7 w-auto object-contain sm:h-8" />
+          <Phone className="hidden size-[18px] sm:block" strokeWidth={1.4} />
+          <img src={lightningAsset.url} alt="Lightning" className="h-7 w-auto object-contain sm:hidden" />
         </a>
       </nav>
       <div aria-hidden={!open} className={`mobile-menu fixed inset-0 z-10 bg-background px-5 pb-8 pt-24 transition-all duration-500 sm:px-10 lg:px-14 ${open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
