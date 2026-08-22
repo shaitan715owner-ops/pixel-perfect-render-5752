@@ -8,6 +8,7 @@ import logoAsset from "@/assets/sklinder-logo.png.asset.json";
 import alphaOrbit from "@/assets/alpha-orbit.png.asset.json";
 import chaudharyLabs from "@/assets/chaudhary-labs.png.asset.json";
 import alphaSend from "@/assets/alpha-send.png.asset.json";
+import lightningAsset from "@/assets/lightning-icon.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -186,7 +187,7 @@ function Navbar({ scrolled, open, setOpen }: { scrolled: boolean; open: boolean;
           <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-9 w-auto object-contain sm:h-11" />
         </a>
         <a href="tel:+966511041390" aria-label="Call Sklinder" className="justify-self-end text-foreground/80 transition-colors hover:text-foreground">
-          <Phone className="size-[18px]" strokeWidth={1.4} />
+          <img src={lightningAsset.url} alt="Lightning" className="h-7 w-auto object-contain sm:h-8" />
         </a>
       </nav>
       <div aria-hidden={!open} className={`mobile-menu fixed inset-0 z-10 bg-background px-5 pb-8 pt-24 transition-all duration-500 sm:px-10 lg:px-14 ${open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
