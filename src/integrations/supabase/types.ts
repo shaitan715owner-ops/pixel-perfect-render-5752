@@ -14,69 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      collaborator_requests: {
-        Row: {
-          building: string
-          contact: string
-          created_at: string
-          help_needed: string
-          id: string
-          is_published: boolean
-          name: string
-          role: string
-          skills: string[]
-        }
-        Insert: {
-          building: string
-          contact: string
-          created_at?: string
-          help_needed: string
-          id?: string
-          is_published?: boolean
-          name: string
-          role: string
-          skills?: string[]
-        }
-        Update: {
-          building?: string
-          contact?: string
-          created_at?: string
-          help_needed?: string
-          id?: string
-          is_published?: boolean
-          name?: string
-          role?: string
-          skills?: string[]
-        }
-        Relationships: []
-      }
-      contact_messages: {
-        Row: {
-          created_at: string
-          email: string
-          handled: boolean
-          id: string
-          message: string
-          name: string
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          handled?: boolean
-          id?: string
-          message: string
-          name: string
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          handled?: boolean
-          id?: string
-          message?: string
-          name?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
