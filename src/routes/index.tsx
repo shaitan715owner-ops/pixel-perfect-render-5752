@@ -151,10 +151,11 @@ function Index() {
             className="mt-12 sm:mt-14"
             desktop="sm:grid sm:grid-cols-3 sm:border-y sm:border-border"
             items={[
-              <PartnerLink key="a" name="Alpha Orbit" href="https://alphaorbit.site" image={alphaOrbit} />,
-              <PartnerLink key="b" name="Chaudhary Labs" href="https://chaudharylabs.com" image={chaudryLabs} />,
-              <PartnerLink key="c" name="Alpha Send" href="https://alphasend.alphaorbit.site" image={alphaSend} />,
+              <PartnerLink key="a" name="Alpha Orbit" href="https://alphaorbit.site" image={alphaOrbit.url} width={774} height={900} scale="" />,
+              <PartnerLink key="b" name="Chaudhary Labs" href="https://chaudharylabs.com" image={chaudharyLabs.url} width={900} height={284} scale="logo-xs" />,
+              <PartnerLink key="c" name="Alpha Send" href="https://alphasend.alphaorbit.site" image={alphaSend.url} width={900} height={660} scale="logo-sm" />,
             ]}
+
           />
         </section>
 
