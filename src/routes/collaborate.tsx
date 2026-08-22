@@ -1,7 +1,7 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState, type FormEvent, type ReactNode } from "react";
-import { ArrowLeft, Check, Loader2, MessageCircle, Send } from "lucide-react";
+import { ArrowLeft, Phone, Check, Loader2, MessageCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -101,13 +101,16 @@ function Collaborate() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border">
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10" aria-label="Collaborate navigation">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-12 w-auto object-contain" />
+        <nav className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-5 sm:h-20 sm:px-10 lg:px-14" aria-label="Collaborate navigation">
+          <Link to="/" className="flex items-center gap-2 justify-self-start font-display text-[10px] font-medium uppercase tracking-[.28em] text-foreground/80 transition-colors hover:text-foreground sm:text-[11px]">
+            <ArrowLeft className="size-3.5" />Back
           </Link>
-          <Link to="/" className="flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground">
-            <ArrowLeft className="size-3.5" />Back home
+          <Link to="/" className="justify-self-center">
+            <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-9 w-auto object-contain sm:h-11" />
           </Link>
+          <a href="tel:+966511041390" aria-label="Call Sklinder" className="justify-self-end text-foreground/80 transition-colors hover:text-foreground">
+            <Phone className="size-[18px]" strokeWidth={1.4} />
+          </a>
         </nav>
       </header>
 
