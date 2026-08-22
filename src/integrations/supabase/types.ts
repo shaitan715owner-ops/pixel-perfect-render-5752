@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      collaborator_requests: {
+        Row: {
+          building: string
+          contact: string
+          created_at: string
+          help_needed: string
+          id: string
+          is_published: boolean
+          name: string
+          role: string
+          skills: string[]
+        }
+        Insert: {
+          building: string
+          contact: string
+          created_at?: string
+          help_needed: string
+          id?: string
+          is_published?: boolean
+          name: string
+          role: string
+          skills?: string[]
+        }
+        Update: {
+          building?: string
+          contact?: string
+          created_at?: string
+          help_needed?: string
+          id?: string
+          is_published?: boolean
+          name?: string
+          role?: string
+          skills?: string[]
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
