@@ -178,20 +178,29 @@ function Index() {
 function Navbar({ scrolled, open, setOpen }: { scrolled: boolean; open: boolean; setOpen: (value: boolean) => void }) {
   const links = [["About", "#about"], ["How it works", "#how"], ["Community", "#community"], ["Partners", "#partners"], ["Contact", "#contact"]];
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${scrolled || open ? "border-border bg-background/90 backdrop-blur-xl" : "border-border/40 bg-background/60 backdrop-blur-md"}`}>
-      <nav className="relative z-20 mx-auto grid h-16 w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-5 sm:h-20 sm:px-10 lg:px-14" aria-label="Main navigation">
+    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${scrolled || open ? "border-border bg-background/85 shadow-[0_1px_0_0_color-mix(in_oklab,var(--border)_60%,transparent)] backdrop-blur-xl" : "border-transparent bg-transparent lg:border-transparent"}`}>
+      <nav className="relative z-20 mx-auto grid h-16 w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-10 lg:hidden" aria-label="Main navigation">
         <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="justify-self-start font-display text-[10px] font-medium uppercase tracking-[.28em] text-foreground/80 transition-colors hover:text-foreground sm:text-[11px]">
           {open ? "Close" : "Menu"}
         </button>
         <a href="#top" onClick={() => setOpen(false)} className="justify-self-center">
-          <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-9 w-auto object-contain sm:h-11" />
+          <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-9 w-auto object-contain" />
         </a>
         <a href="tel:+966511041390" aria-label="Call Sklinder" className="justify-self-end text-foreground/80 transition-colors hover:text-foreground">
-          <Phone className="hidden size-[18px] sm:block" strokeWidth={1.4} />
-          <img src={lightningAsset.url} alt="Lightning" className="h-7 w-auto object-contain sm:hidden" />
+          <img src={lightningAsset.url} alt="Lightning" className="h-7 w-auto object-contain" />
         </a>
       </nav>
-      <div aria-hidden={!open} className={`mobile-menu fixed inset-0 z-10 bg-background px-5 pb-8 pt-24 transition-all duration-500 sm:px-10 lg:px-14 ${open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
+      <nav className="relative z-20 mx-auto hidden h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center px-5 sm:px-8 lg:grid lg:px-10" aria-label="Main navigation">
+        <a href="#top" onClick={() => setOpen(false)} className="logo-enter flex min-w-0 items-center">
+          <img src={logo} alt="Sklinder" width={1536} height={1024} className="h-12 w-auto shrink-0 object-contain sm:h-14" />
+        </a>
+        <div className="flex items-center gap-7">
+          {links.map(([label, href]) => <a key={href} href={href} className="text-xs text-muted-foreground transition-colors hover:text-foreground">{label}</a>)}
+          <Button asChild variant="brand" size="sm"><a href={whatsapp} target="_blank" rel="noreferrer">Join the community</a></Button>
+        </div>
+      </nav>
+      <div aria-hidden={!open} className={`mobile-menu fixed inset-0 z-10 bg-background px-5 pb-8 pt-24 transition-all duration-500 sm:px-10 lg:hidden ${open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
+
         <div className="mx-auto flex h-full max-w-7xl flex-col">
           <div className="flex-1">{links.map(([label, href], index) => <a key={href} href={href} onClick={() => setOpen(false)} className="group grid min-h-16 grid-cols-[auto_1fr_auto] items-center border-b border-border font-display text-2xl"><span className="mr-5 text-[10px] text-primary">0{index + 1}</span><span>{label}</span><ArrowRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-1" /></a>)}</div>
           <div className="pt-8"><p className="mb-5 max-w-xs text-sm leading-6 text-muted-foreground">Skills in. Collaboration out.</p><Button asChild variant="brand" size="xl" className="w-full uppercase sm:w-auto"><a href={whatsapp} target="_blank" rel="noreferrer">Join the community</a></Button></div>
