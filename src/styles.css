@@ -256,3 +256,45 @@ input:focus-visible, textarea:focus-visible { border-color: var(--primary) !impo
   .no-bar { scroll-behavior: auto; }
 }
 
+
+/* ---- Final polish: logos, cards, subtle motion ---- */
+@keyframes node-breathe { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes glow-breathe { 0%, 100% { opacity: .5; transform: scale(1); } 50% { opacity: .85; transform: scale(1.04); } }
+@keyframes hero-visual-in { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+.hero-visual { animation: hero-visual-in .8s cubic-bezier(.2,.8,.2,1) both; }
+.hero-field .network-pulse, .mobile-network .network-pulse { animation-duration: 6s; }
+.breathe { animation: glow-breathe 7s ease-in-out infinite; }
+.node-breathe { animation: node-breathe 6s ease-in-out infinite; }
+
+/* Partner logos: normalized optical height, no stretch, no layout shift */
+.logo-slot { display: grid; place-items: center; height: 3.25rem; width: 100%; }
+.logo-slot img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  opacity: .78;
+  transition: opacity .3s ease-out, filter .3s ease-out, transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.logo-slot img.logo-sm { height: 74%; }
+.logo-slot img.logo-xs { height: 58%; }
+
+@media (hover: hover) and (pointer: fine) {
+  .partner-card:hover .logo-slot img { opacity: 1; filter: brightness(1.1); transform: scale(1.04); }
+  .partner-card:hover { border-color: color-mix(in oklab, var(--primary) 32%, var(--border)); box-shadow: var(--shadow-signal); }
+  .card-lift:hover { transform: translateY(-3px); border-color: color-mix(in oklab, var(--primary) 28%, var(--border)); box-shadow: var(--shadow-lift); }
+}
+.partner-card { transition: border-color .25s ease-out, box-shadow .25s ease-out, background-color .25s ease-out; }
+.partner-card:active .logo-slot img { transform: scale(.99); }
+
+/* Slider: smooth snapping + gentle active emphasis */
+.no-bar > * { transition: opacity .3s ease-out, transform .3s cubic-bezier(.2,.8,.2,1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .breathe, .node-breathe, .float-slow, .flow-dot, .network-pulse, .hero-visual,
+  .hero-eyebrow, .hero-title, .hero-copy, .hero-actions, .hero-trust, .logo-enter { animation: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .marquee-ltr { animation: none !important; }
+  .card-lift:hover, .partner-card:hover .logo-slot img { transform: none !important; }
+}
