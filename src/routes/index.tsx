@@ -266,7 +266,7 @@ function Slider({ items, desktop, className = "" }: { items: ReactNode[]; deskto
   return (
     <div className={className}>
       <div ref={ref} onScroll={onScroll} className={`no-bar -mr-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1 pr-5 sm:mr-0 sm:snap-none sm:gap-0 sm:overflow-visible sm:pb-0 sm:pr-0 ${desktop}`}>
-        {items.map((item, index) => <div key={index} className="w-[83%] shrink-0 snap-start sm:contents">{item}</div>)}
+        {items.map((item, index) => <div key={index} className="w-[84vw] max-w-[420px] shrink-0 snap-start sm:contents">{item}</div>)}
       </div>
       <div className="mt-5 flex justify-center gap-2 sm:hidden">
         {items.map((_, index) => (
