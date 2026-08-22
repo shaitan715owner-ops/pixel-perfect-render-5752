@@ -65,6 +65,9 @@
   --color-surface-strong: var(--surface-strong);
   --color-signal: var(--signal);
   --shadow-signal: 0 8px 30px color-mix(in oklab, var(--primary) 12%, transparent);
+  --shadow-glow: 0 10px 34px color-mix(in oklab, var(--primary) 22%, transparent);
+  --shadow-lift: 0 14px 40px color-mix(in oklab, black 45%, transparent);
+
 }
 
 :root {
