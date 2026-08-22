@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import logo from "@/assets/sklinder-mark.png";
-import alphaOrbit from "@/assets/alpha-orbit-logo.jpg";
-import chaudryLabs from "@/assets/chaudry-labs-logo.png";
-import alphaSend from "@/assets/alpha-send-logo.png";
+import alphaOrbit from "@/assets/alpha-orbit.png.asset.json";
+import chaudharyLabs from "@/assets/chaudhary-labs.png.asset.json";
+import alphaSend from "@/assets/alpha-send.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
