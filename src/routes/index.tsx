@@ -137,11 +137,12 @@ function Index() {
               <p className="mt-5 leading-7 text-muted-foreground">Discover compatibility before you connect, then chat, share, create and collaborate without losing momentum.</p>
             </div>
           </div>
-          <Slider className="mt-16 sm:mt-20" desktop="sm:grid sm:grid-cols-3 sm:gap-0 sm:border-y sm:border-border" items={[
+          <Slider className="mt-16 sm:mt-20" desktop="sm:grid sm:grid-cols-3 sm:gap-0 sm:border-y sm:border-border" items={([
             ["01", "Build your profile", "Show who you are and what you want to build."],
             ["02", "Discover your fit", "Explore relevant people, projects and opportunities."],
             ["03", "Connect & collaborate", "Match, chat and start building together."],
-          ].map(([n, a, b]) => <StepCard key={n} number={n} title={a} copy={b} />)} />
+          ] as const).map(([n, a, b]) => <StepCard key={n} number={n} title={a} copy={b} />)} />
+
         </section>
 
         <section id="app" className="scroll-mt-20 border-y border-border bg-surface/20" data-reveal>
